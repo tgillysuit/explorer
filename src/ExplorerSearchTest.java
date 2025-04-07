@@ -82,8 +82,9 @@ public class ExplorerSearchTest {
     @Test
     public void testReachableArea_empty2dArray() {
         int[][] island = {};
-        int actual = ExplorerSearch.reachableArea(island);
-        assertEquals(0, actual);
+        assertThrows(IllegalArgumentException.class, () -> {
+            ExplorerSearch.reachableArea(island);
+        });
     }
 
 }

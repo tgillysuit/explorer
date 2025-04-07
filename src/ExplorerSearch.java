@@ -33,6 +33,10 @@ public class ExplorerSearch {
         // Implement your method here!
         // Please also make more test cases
         // I STRONGLY RECOMMEND testing some helpers you might make too
+        if (island == null || island.length == 0 || island[0].length == 0) {
+            throw new IllegalArgumentException("Island grid is empty.");
+        } 
+        
         int[] start = explorer(island);
         int rows = island.length;
         int cols = island[0].length;
