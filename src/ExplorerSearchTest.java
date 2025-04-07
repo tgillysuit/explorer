@@ -62,4 +62,28 @@ public class ExplorerSearchTest {
         });
     }
 
+    // Test for double starting points
+    // This test is valid because of two starting point unless there were additional instructions that there should only be one starting point.
+    @Test
+    public void testReachableArea_withTwoStartingPoints() {
+        int[][] island = {
+            {0,1,1,2,3,3},
+            {1,1,1,2,3,2},
+            {2,2,1,1,2,3},
+            {3,2,2,1,2,3},
+            {3,2,2,1,1,0}
+        };
+
+        int actual = ExplorerSearch.reachableArea(island);
+        assertEquals(12, actual);
+    }
+
+    // Test for empty 2d array
+    @Test
+    public void testReachableArea_empty2dArray() {
+        int[][] island = {};
+        int actual = ExplorerSearch.reachableArea(island);
+        assertEquals(0, actual);
+    }
+
 }
