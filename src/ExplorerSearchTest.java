@@ -87,4 +87,58 @@ public class ExplorerSearchTest {
         });
     }
 
+    // Testing if the explorer can search just horizontal
+    @Test
+    public void testReachableArea_onePathHorizontal() {
+        int[][] island = {
+            {0,1,1,1,1,1},
+            {3,3,3,3,3,3},
+            {3,3,3,3,3,3}
+        };
+        int actual = ExplorerSearch.reachableArea(island);
+        assertEquals(6, actual);
+    }
+
+    // Testing if the explorer can search just vertical
+    @Test
+    public void testReachableArea_onePathVertical() {
+        int[][] island = {
+            {0,3,3,3,3,3},
+            {1,3,3,3,3,3},
+            {1,3,3,3,3,3},
+            {1,3,3,3,3,3},
+            {1,3,3,3,3,3}
+        };
+        int actual = ExplorerSearch.reachableArea(island);
+        assertEquals(5, actual);
+    }
+
+    // Testing if the explorer can climb that mountain
+    @Test
+    public void testReachableArea_spiralMountain() {
+        int[][] island = {
+            {0,1,1,1,1,1},
+            {3,3,3,3,3,1},
+            {3,1,1,1,3,1},
+            {3,1,3,3,3,1},
+            {3,1,1,1,1,1},
+            {3,3,3,3,3,3}
+        };
+        int actual = ExplorerSearch.reachableArea(island);
+        assertEquals(18, actual);
+    }
+
+    // Testing if the explorer comes across a washed up trail
+    @Test
+    public void testReachableArea_washedUpTrail() {
+        int[][] island = {
+            {0,1,3,3,3,2},
+            {1,1,2,3,3,2},
+            {2,2,2,2,2,2},
+            {2,2,2,2,1,2},
+            {2,2,2,2,1,1}
+        };
+        int actual = ExplorerSearch.reachableArea(island);
+        assertEquals(4, actual);
+    }
 }
